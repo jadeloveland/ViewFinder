@@ -48,51 +48,58 @@
         <!--Add New Photo-->
         <scene sceneID="EpM-XS-uEu">
             <objects>
-                <viewController id="mnk-l9-FJo" sceneMemberID="viewController">
+                <viewController id="mnk-l9-FJo" customClass="AddPhotoViewController" customModule="ViewFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aqx-yT-jB5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mr-4z-UGl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Picture" translatesAutoresizingMaskIntoConstraints="NO" id="3mr-4z-UGl">
                                 <rect key="frame" x="51" y="149" width="312" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQG-9K-Ucx">
-                                <rect key="frame" x="20" y="508" width="89" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Camera"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Am-9v-tJy">
-                                <rect key="frame" x="140" y="568" width="135" height="44"/>
+                                <rect key="frame" x="259" y="508" width="135" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="PhotoLibray"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axw-iu-p1U">
-                                <rect key="frame" x="309" y="508" width="85" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Albums"/>
+                                <connections>
+                                    <action selector="photoLibraryButton:" destination="mnk-l9-FJo" eventType="touchUpInside" id="CHN-iO-YXQ"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-UD-wZK">
-                                <rect key="frame" x="87" y="433" width="240" height="30"/>
+                                <rect key="frame" x="51" y="433" width="312" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVT-df-gpu">
-                                <rect key="frame" x="179" y="776" width="56" height="44"/>
+                                <rect key="frame" x="179" y="610" width="56" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="mnk-l9-FJo" eventType="touchUpInside" id="vzU-eD-rsg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQG-9K-Ucx">
+                                <rect key="frame" x="51" y="508" width="89" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="mnk-l9-FJo" eventType="touchUpInside" id="aUs-ev-t2t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7o5-nS-Fr6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Photo" id="5Dj-80-6Hg"/>
+                    <connections>
+                        <outlet property="Image" destination="3mr-4z-UGl" id="r1I-Uo-5uf"/>
+                        <outlet property="captionText" destination="ghr-UD-wZK" id="mLH-b4-ViT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzV-15-bdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,4 +124,7 @@
             <point key="canvasLocation" x="184.05797101449278" y="99.776785714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Picture" width="1200" height="674"/>
+    </resources>
 </document>
